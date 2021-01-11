@@ -45,4 +45,5 @@
 # End of https://www.toptal.com/developers/gitignore/api/c++
 /lib/*
 !/lib/.keep
+!/lib/README.md
 *.swp
