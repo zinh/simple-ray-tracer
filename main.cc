@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "color.h"
 
 using namespace std;
 
@@ -24,10 +25,8 @@ int main(int argc, char** argv) {
       auto r = double(col) / (image_width - 1);
       auto g = double(row) / (image_height - 1);
       auto b = 0.25;
-      int ir = static_cast<int>(255.999 * r);
-      int ig = static_cast<int>(255.999 * g);
-      int ib = static_cast<int>(255.999 * b);
-      ostrm << ir << ' ' << ig << ' ' << ib << endl;
+      color pixel(r, g, b);
+      write_color(ostrm, pixel);
     }
   }
 
