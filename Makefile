@@ -11,9 +11,13 @@ vec3_test.out: vec3.h vec3_test.cpp
 color_test.out: vec3.h color.h color_test.cpp
 	$(CC) $(CFLAG) $(LIBS) color_test.cpp -o color_test.out
 
-test: vec3_test.out color_test.out
+ray_test.out: ray_test.cpp ray.h vec3.h
+	$(CC) $(CFLAG) $(LIBS) ray_test.cpp -o ray_test.out
+
+test: vec3_test.out color_test.out ray_test.out
 	DYLD_LIBRARY_PATH=./lib/boost_1_75_0/stage/lib ./vec3_test.out
 	DYLD_LIBRARY_PATH=./lib/boost_1_75_0/stage/lib ./color_test.out
+	DYLD_LIBRARY_PATH=./lib/boost_1_75_0/stage/lib ./ray_test.out
 
 clean:
 	rm *.out
